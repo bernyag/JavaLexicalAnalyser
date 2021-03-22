@@ -23,7 +23,7 @@ def countString(expr):
         instancias = reg.findall("([ ]*=[ ]*)",expr)
         #El número de , más no es el número de variables declaradas
         declaradas = reg.findall(",[ ]*[a-z]([a-zA-Z]|[0-9]|-|_)*",expr)
-        if(reg.search("\[ [ ]*\]",expr)):
+        if(reg.search("\[[ ]*\]",expr)):
             arreglo = True
         numInst = len(instancias)
         numDecl = len(declaradas)-len(instancias)+1

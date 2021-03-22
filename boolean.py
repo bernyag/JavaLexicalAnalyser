@@ -24,7 +24,7 @@ def countBool(expr):
         #El número de , más no es el número de variables declaradas
         declaradas = reg.findall("(,[ ]*[a-z]([a-zA-Z]|[0-9]|-|_)*)",expr)
         contMas = reg.findall("(,[ ]*(false|true))",expr)
-        if(reg.search("\[ [ ]*\]",expr)):
+        if(reg.search("\[[ ]*\]",expr)):
             arreglo = True
         numInst = len(instancias)
         numDecl = len(declaradas)-len(contMas)-len(instancias)+1
