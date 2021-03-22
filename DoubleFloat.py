@@ -1,6 +1,5 @@
-import regex as re
-
-    '''
+import re as re
+'''
     Double
     Verifica las declaraciones double del lenguaje Java en su version 8.
     Parámetros:
@@ -12,7 +11,7 @@ import regex as re
             totDec (int): indica el total de variables inicializadas.
     '''
 
-def checkDouble(test):
+def countDouble(test):
     esArreglo=False
     totIni=0
     totDec=0
@@ -29,14 +28,14 @@ def checkDouble(test):
         else:
             raise Exception()
     except:
-        print("Declaración incorrecta: "+test)
+        #print("Declaración incorrecta: "+test)
         esArreglo=False
         totIni=0
-        totDec=0
+        totDec=-1
         nombre=""
     return [esArreglo, totIni+totDec, totDec]  
 
-def checkFloat(test):
+def countFloat(test):
     esArreglo=False
     totIni=0
     totDec=0
@@ -53,10 +52,10 @@ def checkFloat(test):
         else:
             raise Exception()
     except:
-        print("Declaración incorrecta: "+test)
+        #print("Declaración incorrecta: "+test)
         esArreglo=False
         totIni=0
-        totDec=0
+        totDec=-1
         nombre=""
     return [esArreglo, totIni+totDec, totDec]  
 
@@ -68,7 +67,7 @@ def CuentaIni(test):
         raise Exception()
     return [len(l2),l2]
 
- def CuentaDec(test):
+def CuentaDec(test):
     lst=test.split(",")
     p = [re.findall(r'(.*)=', x) for x in lst]
     p= [item for sublist in p for item in sublist]

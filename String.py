@@ -1,4 +1,4 @@
-import Lib.re as reg
+import re as reg
 
 def countString(expr):
     '''
