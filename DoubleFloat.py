@@ -33,7 +33,7 @@ def countDouble(test):
         totIni=0
         totDec=-1
         nombre=""
-    return [esArreglo, totIni+totDec, totDec]  
+    return (esArreglo, totIni+totDec, totDec)
 
 def countFloat(test):
     esArreglo=False
@@ -57,7 +57,7 @@ def countFloat(test):
         totIni=0
         totDec=-1
         nombre=""
-    return [esArreglo, totIni+totDec, totDec]  
+    return (esArreglo, totIni+totDec, totDec)  
 
 def CuentaIni(test):
     lst=test.split(",")
