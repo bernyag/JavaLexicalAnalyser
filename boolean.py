@@ -14,7 +14,7 @@ def countBool(expr):
     arreglo = False
     numDecl = -1
     numInst = -1
-    patron ="(((boolean)[ ][ ]*([a-z]([a-zA-Z]|[0-9]|-|_)*(([ ]*=[ ]*(true|false)){1}|[ ]*))([ ]*,[ ]*[a-z]([a-zA-Z]|[0-9]|-|_)*(([ ]*=[ ]*(true|false)){1}|[ ]*))*[ ]*;))|(((boolean)[ ]*\[[ ]*\][ ]*([a-z]([a-zA-Z]|[0-9]|-|_)*(([ ]*=[ ]*{[ ]*(true|false)[ ]*(,[ ]*(true|false)[ ]*)*)}{1}|[ ]*))([ ]*,[ ]*[a-z]([a-zA-Z]|[0-9]|-|_)*(([ ]*=[ ]*{[ ]*(true|false)[ ]*(,[ ]*(true|false)[ ]*)*}){1}|[ ]*))*[ ]*;))"
+    patron ="(((boolean)[ ][ ]*([a-z]([a-zA-Z]|[0-9]|-|_)*(([ ]*=[ ]*(true|false)){1}|[ ]*))([ ]*,[ ]*[a-z]([a-zA-Z]|[0-9]|-|_)*(([ ]*=[ ]*(true|false)){1}|[ ]*))*[ ]*))|(((boolean)[ ]*\[[ ]*\][ ]*([a-z]([a-zA-Z]|[0-9]|-|_)*(([ ]*=[ ]*{[ ]*(true|false)[ ]*(,[ ]*(true|false)[ ]*)*)}{1}|[ ]*))([ ]*,[ ]*[a-z]([a-zA-Z]|[0-9]|-|_)*(([ ]*=[ ]*{[ ]*(true|false)[ ]*(,[ ]*(true|false)[ ]*)*}){1}|[ ]*))*[ ]*))"
 
     x = reg.search(patron,expr)
     #Verifico si la línea es válida
