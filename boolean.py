@@ -9,7 +9,7 @@ def countBool(expr):
         tupla de tres parámetros (isArray, nDeclared, nInitialized):
             arreglo (boolean): indica si se declaran arreglos. False si no cumple con la sintaxis.
             numDecl (int): indica el total de variables declaradas. -1 si no cumple con la sintaxis.
-            n (int): indica el total de variables inicializadas. -1 si no cumple con la sintaxis.
+            numInst (int): indica el total de variables inicializadas. -1 si no cumple con la sintaxis.
     '''
     arreglo = False
     numDecl = -1
@@ -27,6 +27,6 @@ def countBool(expr):
         if(reg.search("\[[ ]*\]",expr)):
             arreglo = True
         numInst = len(instancias)
-        numDecl = len(declaradas)-len(contMas)-len(instancias)+1
+        numDecl = len(declaradas)-len(contMas)+1
     return (arreglo, numDecl, numInst)
 

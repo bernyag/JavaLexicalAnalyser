@@ -41,7 +41,7 @@ def countShort(expr):
         if(reg.search("\[[ ]*\]",expr)):
             arreglo = True
         numInst = len(instancias)
-        numDecl = len(declaradas)-len(instancias)+1
+        numDecl = len(declaradas)+1
     return (arreglo, numDecl, numInst)
 
 
