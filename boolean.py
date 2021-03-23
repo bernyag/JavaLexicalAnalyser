@@ -1,6 +1,6 @@
 import re as reg
 
-def countBool(expr):
+def countBoolean(expr):
     '''
     Verifica las declaraciones de variables tipo boolean del lenguaje Java en su version 8.
     Parámetros:

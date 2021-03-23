@@ -16,17 +16,20 @@ def countDouble(test):
     totIni=0
     totDec=0
     tst=test.replace(" ", "")
+    tst=test.replace(";", "")
     try:
-        if(tst.count('double')==1):
-            tst=tst.replace("double", "")
-            tst=tst.replace(";", "")
-            if(tst[:2]=='[]' or tst[-2:]=='[]'):
-                esArreglo=True
-                tst=tst.replace("[]", "")
-            [totIni,nombre]=CuentaIni(tst)
-            [totDec,nombre2]=CuentaDec(tst)
-        else:
-            raise Exception()
+        tst=tst.replace("double", "")
+        tst=tst.replace(";", "")
+        if(tst[:2]=='[]' or tst[-2:]=='[]'):
+        	esArreglo=True
+        	tst=tst.replace("[]", "")
+        	p = re.findall(r'{(.*)}', tst)
+        	p=p[0].split(",")
+        	for x in p:
+        		float(x)
+        		tst=re.sub('{.+?}', '1', tst)
+        totIni=CuentaIni(tst)
+        totDec=CuentaDec(tst)
     except:
         #print("Declaración incorrecta: "+test)
         esArreglo=False
@@ -40,17 +43,24 @@ def countFloat(test):
     totIni=0
     totDec=0
     tst=test.replace(" ", "")
+    tst=test.replace(";", "")
     try:
-        if(tst.count('float')==1):
-            tst=tst.replace("float", "")
-            tst=tst.replace(";", "")
-            if(tst[:2]=='[]' or tst[-2:]=='[]'):
-                esArreglo=True
-                tst=tst.replace("[]", "")
-            [totIni,nombre]=CuentaIni(tst)
-            [totDec,nombre2]=CuentaDecFloat(tst)
-        else:
-            raise Exception()
+    	tst=tst.replace("float", "")
+    	tst=tst.replace(";", "")
+    	if(tst[:2]=='[]' or tst[-2:]=='[]'):
+            esArreglo=True
+            tst=tst.replace("[]", "")
+            lst=test.split("},")
+            p = re.findall(r'{(.*)}', tst)
+            p=p[0].split(",")
+            for x in p:
+            	if x[-1]=='f' or x[-1]=='F':
+            		float(x[:-1])
+            		tst=re.sub('{.+?}', '1f', tst)
+            	else:
+            		raise Exception()
+    	totIni=CuentaIni(tst)
+    	totDec=CuentaDecFloat(tst)
     except:
         #print("Declaración incorrecta: "+test)
         esArreglo=False
@@ -65,7 +75,7 @@ def CuentaIni(test):
     l2 = [ s for s in lst if p.match(s)]
     if ("" in l2):
         raise Exception()
-    return [len(l2),l2]
+    return len(l2)
 
 def CuentaDec(test):
     lst=test.split(",")
@@ -76,7 +86,7 @@ def CuentaDec(test):
     for x in l2:
         if (abs(float(x))<4.9e-34 or abs(float(x))>1.8e+308): 
             raise Exception()
-    return [len(l2),p]
+    return len(l2)
 
 def CuentaDecFloat(test):
     lst=test.split(",")
@@ -90,4 +100,7 @@ def CuentaDecFloat(test):
             float(x)
         else:
             raise Exception()
-    return [len(l2),p]
+    return len(l2)
+
+#print("float[] floatArr = {10f, 20f, 30f, 40f}")
+#print(countFloat("float[] floatArr = {10f, 20f, 30f, 40f}"))
