@@ -102,5 +102,5 @@ def CuentaDecFloat(test):
             raise Exception()
     return len(l2)
 
-print("float[] floatArr = {10f, 20f, 30f, 40f}")
-print(countFloat("float[] floatArr = {10f, 20f, 30f, 40f}"))
+#print("float[] floatArr = {10f, 20f, 30f, 40f}")
+#print(countFloat("float[] floatArr = {10f, 20f, 30f, 40f}"))
