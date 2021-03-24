@@ -28,7 +28,7 @@ El proyecto consiste en construir un sencillo reconocedor de declaraciones de va
 * El formato de la salida es a libre eleccion, pero debe ser claro.
 
 ## Funcionamiento
-Para evaluar las expresiones se definieron métodos distintos para cada tipo de dato que admite Java 8. Estos métodos pueden ser consultados en su archivo correspondiente:
+Para evaluar las expresiones se definieron métodos distintos para cada tipo de dato que admite Java 8. La validación de las declaraciones se realizo usando expresiones regulares. Estos métodos pueden ser consultados en su archivo correspondiente:
 * [float](https://github.com/bernyag/JavaLexicalAnalyser/blob/main/DoubleFloat.py)
 * [String](https://github.com/bernyag/JavaLexicalAnalyser/blob/main/String.py)
 * [boolean](https://github.com/bernyag/JavaLexicalAnalyser/blob/main/boolean.py)
@@ -37,5 +37,7 @@ Para evaluar las expresiones se definieron métodos distintos para cada tipo de 
 * [int](https://github.com/bernyag/JavaLexicalAnalyser/blob/main/int.py)
 * [long](https://github.com/bernyag/JavaLexicalAnalyser/blob/main/long.py)
 * [short](https://github.com/bernyag/JavaLexicalAnalyser/blob/main/short.py)
-El archivo que contiene las expresiones a evaluar está titulado como [*java-regex.txt*](https://github.com/bernyag/JavaLexicalAnalyser/blob/main/java-regex.txt)
-El archivo *main.py* es el que el usuario debe correr para utilizar el proyecto. Este último contiene las llamadas a los métodos que mencionamos anteriormente.
+
+El archivo que contiene las expresiones a evaluar está titulado como [`java-regex.txt`](https://github.com/bernyag/JavaLexicalAnalyser/blob/main/java-regex.txt). El usuario puede modificar este archivo para evaluar las distintas declaraciones. Es importante notar que las distintas declaraciones están en un mismo renglón separadas por un `;`.
+
+El archivo [`main.py`](https://github.com/bernyag/JavaLexicalAnalyser/blob/main/main.py) es el que el usuario debe correr para utilizar el proyecto. Este último contiene las llamadas a los métodos que mencionamos anteriormente.
