@@ -41,3 +41,7 @@ Para evaluar las expresiones se definieron métodos distintos para cada tipo de 
 El archivo que contiene las expresiones a evaluar está titulado como [`java-regex.txt`](https://github.com/bernyag/JavaLexicalAnalyser/blob/main/java-regex.txt). El usuario puede modificar este archivo para evaluar las distintas declaraciones. Es importante notar que las distintas declaraciones están en un mismo renglón separadas por un `;`.
 
 El archivo [`main.py`](https://github.com/bernyag/JavaLexicalAnalyser/blob/main/main.py) es el que el usuario debe correr para utilizar el proyecto. Este último contiene las llamadas a los métodos que mencionamos anteriormente.
+
+## Ejecución
+Descargar el repositorio, colocarse sobre el archivo [`main.py`](https://github.com/bernyag/JavaLexicalAnalyser/blob/main/main.py) y correr el siguiente comando en el CLI:
+   `python3 main.py`
