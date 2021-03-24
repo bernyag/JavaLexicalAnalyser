@@ -14,7 +14,7 @@ from int import countInt
 from boolean import countBoolean
 from byte import countByte
 from char import countChar
-from DoubleFloat import countFloat, countDouble
+from doubleFloat import countFloat, countDouble
 from String import countString
 from regex import info
 
@@ -35,7 +35,7 @@ def evaluate():
     # Así la primera palabra en cada expresion debe indicar el tipo de dato
     
     lines = [x.lstrip() for x in lines]
-    print("Expresiones a evaluar \n")
+    print("Expresiones a evaluar: \n")
     for x in range(len(lines)):
         print(lines[x])
     print("\n")
@@ -106,6 +106,7 @@ def evaluate():
             }
         return switcher.get(label,(100, 100))
 
+    print("Iterando las expresiones... \n")
     for line in lines:
         valid = switch(line.split()[0], line)[1:] != (-1,-1)
         if valid:
@@ -140,3 +141,5 @@ def evaluate():
             type_var[line.split()[0]].add(x)
     for var in type_var:
         print(var,":", type_var[var])
+
+evaluate()
