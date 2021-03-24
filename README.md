@@ -1,14 +1,14 @@
- Proyecto: JavaLexicalAnalyser
+# JavaLexicalAnalyser
 
-## Integrantes del equipo
-
-* Bernardo Altamirano (167881)
-* Ivana Lucho (167028)
-* Andrea Padilla (166605)
-* América Castrejón (166414)
-* Alexis Calvillo (159702)
-* Maritrini García (151490)
- 
+---
+**Elaborado por:**
++ Bernardo Altamirano (167881)
++ Ivana Lucho (167028)
++ Andrea Padilla (166605)
++ América Castrejón (166414)
++ Alexis Calvillo (159702)
++ Maritrini García (151490)
+---
 
 ## Introducción
 El proyecto consiste en construir un sencillo reconocedor de declaraciones de variables de un lenguaje de programación. El programa debe leer los datos de entrada, una serie de declaraciones de variables y debe arrojar como resultado una serie de estadisticas relacionadas con las variables declaradas y sus tipos.
