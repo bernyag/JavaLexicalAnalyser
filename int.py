@@ -1,4 +1,5 @@
-import re
+# -*- coding: utf-8 -*-
+import re as reg
 import numpy as np
 
 def countInt(expr):
@@ -17,19 +18,19 @@ def countInt(expr):
     pattern = r"^int\s*((\[\s*\]\s*[a-zA-Z_]+\w*((\s*=\s*({(\s*[-+]?\s*\d+(_*\d+)*(\s*,\s*[-+]?\s*\d+(_*\d+)*)*)*\s*}|null|new int\s*\[\s*\d+\s*\])(?!\s*=))?(\s*,\s*[a-zA-Z_]+\w*)?)*)|(\s+[a-zA-Z_]+\w*((\s*=\s*[-+]?\s*\d+(_*\d+)*(?!\s*=))?(\s*,\s*[a-zA-Z_]+\w*)?)*))\s*$"
     
     # Verifica la sintaxis
-    if re.fullmatch(pattern, expr): 
-        initialized = re.findall('=', expr) # Encuentra todos los '=' para saber cuántas variables se inicializaron
+    if reg.fullmatch(pattern, expr): 
+        initialized = reg.findall('=', expr) # Encuentra todos los '=' para saber cuántas variables se inicializaron
         
         # Verifica si la declaración es de arreglos
-        if re.search("\[\s*\]", expr):
+        if reg.search("\[\s*\]", expr):
             
             # Encuentra todas las ',' para saber cuántas variables se declararon
             # Como tambien pueden existir las ',' dentro de {} (para inicializaciones de arreglos), se eliminan 
             # sin afectar la cadena original y después se realiza la busqueda por las ',' que separan a las variables
-            declared = re.split(',', re.sub(r"{\s*[-+]?\s*\d+(_*\d+)*(\s*,\s*[-+]?\s*\d+(_*\d+)*)*\s*}", "{}", expr))
+            declared = reg.split(',', reg.sub(r"{\s*[-+]?\s*\d+(_*\d+)*(\s*,\s*[-+]?\s*\d+(_*\d+)*)*\s*}", "{}", expr))
             
             # Arreglo de numeros encontrados en la cadena original (las inicializaciones)
-            numbers = re.finditer(r"{\s*[-+]?\s*\d+(_*\d+)*(\s*,\s*[-+]?\s*\d+(_*\d+)*)*\s*}", expr)
+            numbers = reg.finditer(r"{\s*[-+]?\s*\d+(_*\d+)*(\s*,\s*[-+]?\s*\d+(_*\d+)*)*\s*}", expr)
             if numbers: # Verifica si encontró alguno
                 for number in numbers:
                     for x in np.char.replace(np.char.strip(np.array(number.group()[1:-1].split(','))), ' ', ''):
@@ -41,10 +42,10 @@ def countInt(expr):
             
         # Declaraciones que no son de arreglos
         else:
-            declared = re.split(',', expr) # Encuentra todas las ',' para saber cuántas variables se declararon
+            declared = reg.split(',', expr) # Encuentra todas las ',' para saber cuántas variables se declararon
             
             # Arreglo de numeros encontrados en la cadena original (las inicializaciones)
-            numbers = re.finditer(r"=\s*[-+]?\s*\d+(_*\d+)*", expr)
+            numbers = reg.finditer(r"=\s*[-+]?\s*\d+(_*\d+)*", expr)
             if numbers: # Verifica si encontró alguno
                 for number in numbers:
                     if not(-2**31 <= int(number.group()[1:].strip().replace(' ', '')) <= (2**31)-1): # Verifica que el numero se encuentre dentro del rango para int de Java en su version 8

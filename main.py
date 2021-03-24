@@ -11,13 +11,14 @@ import sys
 sys.path.insert(1,'\\Documents\\FMC\\JavaLexicalAnalyser')
 import re
 from short import countShort
-from long import countLong
-from int import countInt
-from boolean import countBool
+from Long import countLong
+from Int import countInt
+from boolean import countBoolean
 from byte import countByte
 from char import countChar
-from DoubleFloat import countFloat, countDouble
+from doubleFloat import countFloat, countDouble
 from String import countString
+from regex import info
 
 # Se leen las expresiones de un archivo de texto
 file = open("java-regex.txt", "r")
@@ -26,7 +27,7 @@ lines = content.split(';')
 file.close()
 
 print("Expresiones a evaluar \n")
-print(lines)
+print(lines, "\n")
 
 # El método split deja como último elemento de la lista un espacio por lo que 
 # se elimina con el método pop()
@@ -91,7 +92,7 @@ def switch(label, line):
         "byte": (lambda x: countByte(x))(line),
         "byte[]": (lambda x: countByte(x))(line),
         "short": (lambda x: countShort(x))(line),
-        "short[]": (lambda x: countShortx))(line),
+        "short[]": (lambda x: countShort(x))(line),
         "long": (lambda x: countLong(x))(line),
         "long[]": (lambda x: countLong(x))(line),
         "float": (lambda x: countFloat(x))(line),

@@ -1,13 +1,14 @@
+# -*- coding: utf-8 -*-
 import re
 import numpy as np
 
 def countLong(expr):
     '''
     Verifica las declaraciones de variables tipo long del lenguaje Java en su version 8.
-    Parámetros:
-        expression (str): expresión a analizar.
+    Parametros:
+        expression (str): expresion a analizar.
     Regresa: 
-        tupla de tres parámetros (array, nDeclared, nInitialized). Si no se cumple con la sintaxis, regresa (False, -1, -1).
+        tupla de tres parametros (array, nDeclared, nInitialized). Si no se cumple con la sintaxis, regresa (False, -1, -1).
             array (boolean): indica si se declaran arreglos.
             nDeclared (int): indica el total de variables declaradas.
             nInitialized (int): indica el total de variables inicializadas.
