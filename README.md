@@ -44,4 +44,4 @@ El archivo [`main.py`](https://github.com/bernyag/JavaLexicalAnalyser/blob/main/
 
 ## Ejecución
 Descargar el repositorio, colocarse sobre el archivo [`main.py`](https://github.com/bernyag/JavaLexicalAnalyser/blob/main/main.py) y correr el siguiente comando en el CLI:
-   `python3 main.py`
+   +`python3 main.py`
