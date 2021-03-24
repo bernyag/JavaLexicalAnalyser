@@ -59,6 +59,10 @@ def isInteger(var, expr):
         # sin afectar la cadena original y después se realiza la busqueda por las ',' que separan a las variables
         declared = re.split(',', re.sub(r"{\s*[-+]?\s*((\d+(_*\d+)*[Ll]?)|(0(([bB][01]+(_*[01]+)*)|([xX][0-9A-Za-z]+(_*[0-9A-Za-z])*))))(\s*,\s*[-+]?\s*((\d+(_*\d+)*[Ll]?)|(0(([bB][01]+(_*[01]+)*)|([xX][0-9A-Za-z]+(_*[0-9A-Za-z])*)))))*\s*}", "{}", expr))
         
+        # Verifica que los nombres de las variables aparezcan una sola vez en la expresión
+        if len(set(varNames(declared))) != len(declared):
+            return (None, False, -1, -1, [])
+        
         # Verifica si la declaración es de arreglos
         if re.search("\[[ ]*\]", expr):
             
@@ -135,6 +139,10 @@ def isFloatingPoint(var, expr):
         # sin afectar la cadena original y después se realiza la busqueda por las ',' que separan a las variables
         declared = re.split(',', re.sub(r"{\s*[-+]?\s*\d+(_*\d+)*(\.\d+)?(_*\d+)*(e\d+)?[fFdD]?(\s*,\s*[-+]?\s*\d+(_*\d+)*(\.\d+)?(_*\d+)*(e\d+)?[fFdD]?)*\s*}", "{}", expr))
         
+        # Verifica que los nombres de las variables aparezcan una sola vez en la expresión
+        if len(set(varNames(declared))) != len(declared):
+            return (None, False, -1, -1, [])
+        
         # Verifica si la declaración es de arreglos
         if re.search("\[\s*\]", expr):
             
@@ -209,6 +217,10 @@ def isNotNumber(var, expr):
         # Como tambien pueden existir las ',' dentro de {} (para inicializaciones de arreglos), se eliminan
         # sin afectar la cadena original y después se realiza la busqueda por las ',' que separan a las variables
         declared = re.split(',', re.sub(r"{(\s*"+values+"\s*(\s*,\s*"+values+")*)*\s*}", "{}", expr))
+        
+        # Verifica que los nombres de las variables aparezcan una sola vez en la expresión
+        if len(set(varNames(declared))) != len(declared):
+            return (None, False, -1, -1, [])
         
         # Verifica si la declaración es de arreglos
         if re.search("\[[ ]*\]", expr):
