@@ -43,6 +43,6 @@ El archivo que contiene las expresiones a evaluar está titulado como [`java-reg
 El archivo [`main.py`](https://github.com/bernyag/JavaLexicalAnalyser/blob/main/main.py) es el que el usuario debe correr para utilizar el proyecto. Este último contiene las llamadas a los métodos que mencionamos anteriormente.
 
 ## Ejecución
-Descargar el repositorio, colocarse sobre el archivo [`main.py`](https://github.com/bernyag/JavaLexicalAnalyser/blob/main/main.py) y correr el siguiente comando en el CLI:
+Descargar el repositorio, contar con Python y con la librería `numpy` y colocarse sobre el archivo [`main.py`](https://github.com/bernyag/JavaLexicalAnalyser/blob/main/main.py) para correr el siguiente comando en el CLI:
    
    `python3 main.py`
